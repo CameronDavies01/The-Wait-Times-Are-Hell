@@ -22,6 +22,11 @@ public class MoveTo : MonoBehaviour
             EmilyMove.Play("EmilyBTC");
             StartCoroutine(AnimationBuffer2());
         }
+        if ((Input.GetButtonDown("Up")) && (Position == ("1")))
+        {
+            EmilyMove.Play("EmilyBTBO");
+            StartCoroutine(AnimationBuffer15());
+        }
 
         // From the center when facing the back
         if ((Input.GetButtonDown("Right")) && (Position == ("2")))
@@ -92,7 +97,7 @@ public class MoveTo : MonoBehaviour
         // From the front
         if ((Input.GetButtonDown("Down")) && (Position == ("6")))
         {
-            EmilyMove.Play("EmilyBTC");
+            EmilyMove.Play("EmilyFTC");
             StartCoroutine(AnimationBuffer5());
         }
 
@@ -118,7 +123,7 @@ public class MoveTo : MonoBehaviour
             StartCoroutine(AnimationBuffer10());
         }
 
-        // From the left front
+        // From Karen
         if ((Input.GetButtonDown("Down")) && (Position == ("8")))
         {
             EmilyMove.Play("EmilyLFTL");
@@ -161,7 +166,7 @@ public class MoveTo : MonoBehaviour
             StartCoroutine(AnimationBuffer14());
         }
 
-        // From the right front
+        // From Jill
         if ((Input.GetButtonDown("Down")) && (Position == ("12")))
         {
             EmilyMove.Play("EmilyRFTR");
@@ -182,6 +187,12 @@ public class MoveTo : MonoBehaviour
             StartCoroutine(AnimationBuffer11());
         }
 
+        // From Bob
+        if ((Input.GetButtonDown("Down")) && (Position == ("15")))
+        {
+            EmilyMove.Play("EmilyBOTB");
+            StartCoroutine(AnimationBuffer1());
+        }
     }
     IEnumerator AnimationBuffer1()
     {
@@ -252,5 +263,20 @@ public class MoveTo : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Position = ("14");
+    }
+    IEnumerator AnimationBuffer15()
+    {
+        yield return new WaitForSeconds(1);
+        Position = ("15");
+    }
+    IEnumerator AnimationBuffer16()
+    {
+        yield return new WaitForSeconds(1);
+        Position = ("16");
+    }
+    IEnumerator AnimationBuffer17()
+    {
+        yield return new WaitForSeconds(1);
+        Position = ("17");
     }
 }
