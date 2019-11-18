@@ -6,6 +6,10 @@ public class MoveTo : MonoBehaviour
 {
     public Animator EmilyMove;
     string Position;
+    public GameObject BobScreen;
+    public GameObject KarenScreen;
+    public GameObject JillScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -94,7 +98,7 @@ public class MoveTo : MonoBehaviour
             StartCoroutine(AnimationBuffer6());
         }
 
-        // From the front
+        // From Karen
         if ((Input.GetButtonDown("Down")) && (Position == ("6")))
         {
             EmilyMove.Play("EmilyFTC");
@@ -123,7 +127,7 @@ public class MoveTo : MonoBehaviour
             StartCoroutine(AnimationBuffer10());
         }
 
-        // From Karen
+        // From the front
         if ((Input.GetButtonDown("Down")) && (Position == ("8")))
         {
             EmilyMove.Play("EmilyLFTL");
@@ -192,6 +196,36 @@ public class MoveTo : MonoBehaviour
         {
             EmilyMove.Play("EmilyBOTB");
             StartCoroutine(AnimationBuffer1());
+        }
+
+        if (Position == ("15"))
+        {
+            BobScreen.SetActive(true);
+        }
+        else
+        {
+            BobScreen.SetActive(false);
+
+        }
+
+        if (Position == ("6"))
+        {
+            KarenScreen.SetActive(true);
+        }
+        else
+        {
+            KarenScreen.SetActive(false);
+
+        }
+
+        if (Position == ("12"))
+        {
+            JillScreen.SetActive(true);
+        }
+        else
+        {
+            JillScreen.SetActive(false);
+
         }
     }
     IEnumerator AnimationBuffer1()
