@@ -5,10 +5,15 @@ using UnityEngine;
 public class MoveTo : MonoBehaviour
 {
     public Animator EmilyMove;
-    string Position;
+    public string Position;
     public GameObject BobScreen;
     public GameObject KarenScreen;
     public GameObject JillScreen;
+
+    public GameObject ArrowUp;
+    public GameObject ArrowDown;
+    public GameObject ArrowLeft;
+    public GameObject ArrowRight;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +26,13 @@ public class MoveTo : MonoBehaviour
     void Update()
     {
         // From the back
+        if (Position == ("1"))
+        {
+            ArrowUp.SetActive(true);
+            ArrowDown.SetActive(true);
+            ArrowLeft.SetActive(false);
+            ArrowRight.SetActive(false);
+        }
         if ((Input.GetButtonDown("Down")) && (Position == ("1")))
         {
             EmilyMove.Play("EmilyBTC");
@@ -33,6 +45,13 @@ public class MoveTo : MonoBehaviour
         }
 
         // From the center when facing the back
+        if (Position == ("2"))
+        {
+            ArrowUp.SetActive(true);
+            ArrowDown.SetActive(false);
+            ArrowLeft.SetActive(true);
+            ArrowRight.SetActive(true);
+        }
         if ((Input.GetButtonDown("Right")) && (Position == ("2")))
         {
             EmilyMove.Play("EmilyTurn1");
@@ -49,6 +68,13 @@ public class MoveTo : MonoBehaviour
             StartCoroutine(AnimationBuffer4());
         }
         // From the center when facing the left
+        if (Position == ("2"))
+        {
+            ArrowUp.SetActive(true);
+            ArrowDown.SetActive(false);
+            ArrowLeft.SetActive(true);
+            ArrowRight.SetActive(true);
+        }
         if ((Input.GetButtonDown("Left")) && (Position == ("3")))
         {
             EmilyMove.Play("EmilyTurn7");
@@ -65,6 +91,13 @@ public class MoveTo : MonoBehaviour
             StartCoroutine(AnimationBuffer7());
         }
         // From the center when facing the right
+        if (Position == ("3"))
+        {
+            ArrowUp.SetActive(true);
+            ArrowDown.SetActive(false);
+            ArrowLeft.SetActive(true);
+            ArrowRight.SetActive(true);
+        }
         if ((Input.GetButtonDown("Left")) && (Position == ("4")))
         {
             EmilyMove.Play("EmilyTurn3");
@@ -82,6 +115,13 @@ public class MoveTo : MonoBehaviour
         }
 
         // From the center when facing the front
+        if (Position == ("4"))
+        {
+            ArrowUp.SetActive(true);
+            ArrowDown.SetActive(false);
+            ArrowLeft.SetActive(true);
+            ArrowRight.SetActive(true);
+        }
         if ((Input.GetButtonDown("Right")) && (Position == ("5")))
         {
             EmilyMove.Play("EmilyTurn5");
@@ -99,13 +139,26 @@ public class MoveTo : MonoBehaviour
         }
 
         // From Karen
+        if (Position == ("5"))
+        {
+            ArrowUp.SetActive(true);
+            ArrowDown.SetActive(false);
+            ArrowLeft.SetActive(false);
+            ArrowRight.SetActive(false);
+        }
         if ((Input.GetButtonDown("Down")) && (Position == ("6")))
         {
             EmilyMove.Play("EmilyFTC");
             StartCoroutine(AnimationBuffer5());
         }
-
         // From the left
+        if (Position == ("6"))
+        {
+            ArrowUp.SetActive(false);
+            ArrowDown.SetActive(true);
+            ArrowLeft.SetActive(false);
+            ArrowRight.SetActive(false);
+        }
         if ((Input.GetButtonDown("Down")) && (Position == ("7")))
         {
             EmilyMove.Play("EmilyLTC");
@@ -126,8 +179,14 @@ public class MoveTo : MonoBehaviour
             EmilyMove.Play("EmilyLTW2");
             StartCoroutine(AnimationBuffer10());
         }
-
         // From the front
+        if (Position == ("7"))
+        {
+            ArrowUp.SetActive(false);
+            ArrowDown.SetActive(true);
+            ArrowLeft.SetActive(false);
+            ArrowRight.SetActive(false);
+        }
         if ((Input.GetButtonDown("Down")) && (Position == ("8")))
         {
             EmilyMove.Play("EmilyLFTL");
@@ -135,6 +194,13 @@ public class MoveTo : MonoBehaviour
         }
 
         // From window 1
+        if (Position == ("8"))
+        {
+            ArrowUp.SetActive(false);
+            ArrowDown.SetActive(true);
+            ArrowLeft.SetActive(false);
+            ArrowRight.SetActive(false);
+        }
         if ((Input.GetButtonDown("Down")) && (Position == ("9")))
         {
             EmilyMove.Play("EmilyW1TL");
@@ -142,6 +208,13 @@ public class MoveTo : MonoBehaviour
         }
 
         // From window 2
+        if (Position == ("9"))
+        {
+            ArrowUp.SetActive(false);
+            ArrowDown.SetActive(true);
+            ArrowLeft.SetActive(false);
+            ArrowRight.SetActive(false);
+        }
         if ((Input.GetButtonDown("Down")) && (Position == ("10")))
         {
             EmilyMove.Play("EmilyW2TL");
@@ -149,6 +222,13 @@ public class MoveTo : MonoBehaviour
         }
 
         // From the right
+        if (Position == ("10"))
+        {
+            ArrowUp.SetActive(true);
+            ArrowDown.SetActive(true);
+            ArrowLeft.SetActive(true);
+            ArrowRight.SetActive(true);
+        }
         if ((Input.GetButtonDown("Down")) && (Position == ("11")))
         {
             EmilyMove.Play("EmilyRTC");
@@ -171,6 +251,13 @@ public class MoveTo : MonoBehaviour
         }
 
         // From Jill
+        if (Position == ("12"))
+        {
+            ArrowUp.SetActive(false);
+            ArrowDown.SetActive(true);
+            ArrowLeft.SetActive(false);
+            ArrowRight.SetActive(false);
+        }
         if ((Input.GetButtonDown("Down")) && (Position == ("12")))
         {
             EmilyMove.Play("EmilyRFTR");
@@ -178,6 +265,13 @@ public class MoveTo : MonoBehaviour
         }
 
         // From window 3
+        if (Position == ("13"))
+        {
+            ArrowUp.SetActive(false);
+            ArrowDown.SetActive(true);
+            ArrowLeft.SetActive(false);
+            ArrowRight.SetActive(false);
+        }
         if ((Input.GetButtonDown("Down")) && (Position == ("13")))
         {
             EmilyMove.Play("EmilyW3TR");
@@ -185,6 +279,13 @@ public class MoveTo : MonoBehaviour
         }
 
         // From window 4
+        if (Position == ("14"))
+        {
+            ArrowUp.SetActive(false);
+            ArrowDown.SetActive(true);
+            ArrowLeft.SetActive(false);
+            ArrowRight.SetActive(false);
+        }
         if ((Input.GetButtonDown("Down")) && (Position == ("14")))
         {
             EmilyMove.Play("EmilyW4TR");
@@ -192,6 +293,13 @@ public class MoveTo : MonoBehaviour
         }
 
         // From Bob
+        if (Position == ("15"))
+        {
+            ArrowUp.SetActive(false);
+            ArrowDown.SetActive(true);
+            ArrowLeft.SetActive(false);
+            ArrowRight.SetActive(false);
+        }
         if ((Input.GetButtonDown("Down")) && (Position == ("15")))
         {
             EmilyMove.Play("EmilyBOTB");
