@@ -9,6 +9,8 @@ public class WaterDispensorEmpty : MonoBehaviour
     public GameObject WD3;
     public GameObject WD4;
     public GameObject WD5;
+    public GameObject Jill;
+    public GameObject GoToForJill;
 
     void Update()
     {
@@ -38,6 +40,7 @@ public class WaterDispensorEmpty : MonoBehaviour
                 {
                     WD5.transform.position = WD4.transform.position;
                     WD4.SetActive(false);
+                    Jill.transform.position = GoToForJill.transform.position;
                 }
             }
         }
