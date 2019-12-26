@@ -7,12 +7,24 @@ public class PickUpCamera : MonoBehaviour
 {
     public GameObject Camera1;
     public GameObject CameraObject;
-    public GameObject DummyCamera;
-    public Button CameraButton;
+    public int CameraPosition;
     public bool CameraButtonOn;
+
+    public GameObject DummyCamera;
+
     public GameObject Book1;
     public GameObject BookObject;
+    public int BookPosition;
+    public bool BookButtonOn;
+
     public GameObject Karen1;
+    public int KarenPosition;
+    public bool KarenButtonOn;
+
+    public GameObject KarenBook1;
+    public int KarenBookPosition;
+    public bool KarenBookButtonOn;
+
     GameObject InventoryPosition;
     int WhereTo;
     public GameObject WD1;
@@ -35,20 +47,40 @@ public class PickUpCamera : MonoBehaviour
     }
     void Update()
     {
-        CameraButton.onClick.AddListener(CameraButtonPressed);
+        if (Input.GetKeyDown(CameraPosition.ToString()))
+        {
+            CameraButtonOn = true;
+        }
+        if (Input.GetKeyDown(BookPosition.ToString()))
+        {
+            BookButtonOn = true;
+        }
+        if (Input.GetKeyDown(KarenPosition.ToString()))
+        {
+            KarenButtonOn = true;
+        }
+        if (Input.GetKeyDown(KarenBookPosition.ToString()))
+        {
+            KarenBookButtonOn = true;
+        }
+
+        if ((KarenButtonOn == true) & (BookButtonOn == true))
+        {
+            Book1.SetActive(false);
+            Karen1.SetActive(false);
+            KarenBook1.transform.position = InventoryPosition.transform.position;
+
+        }
+
+
         if ((Input.GetKeyDown("i")) & (Menu.activeInHierarchy == false))
         {
             Menu.SetActive(true);
-
         }
         else if ((Input.GetKeyDown("i")) & (Menu.activeInHierarchy == true))
         {
             Menu.SetActive(false);
         }
-        
-
-
-
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit RayHit;
@@ -111,19 +143,24 @@ public class PickUpCamera : MonoBehaviour
                 {
                     Camera1.transform.position = InventoryPosition.transform.position;
                     CameraObject.SetActive(false);
+                    CameraPosition = WhereTo;
                     WhereTo = WhereTo + 1;
+                    
+
                 }
                 if (RayHit.transform.name == "ObjectBook")
                 {
                     Book1.transform.position = InventoryPosition.transform.position;
                     BookObject.SetActive(false);
+                    BookPosition = WhereTo;
                     WhereTo = WhereTo + 1;
                 }
                 if ((RayHit.transform.name == "KarenEverTorture") && (CameraButtonOn == true))
                 {
-                    
                         Karen1.transform.position = InventoryPosition.transform.position;
-                        WhereTo = WhereTo + 1;
+                    KarenPosition = WhereTo;
+                    WhereTo = WhereTo + 1;
+                   
                 }
                 if (RayHit.transform.name == "DummyObjectCamera")
                 {
@@ -131,13 +168,8 @@ public class PickUpCamera : MonoBehaviour
                     Emily.transform.position = GoToForEmily.transform.position;
                     Emily.SetActive(true);
                 }
+
             }     
         }
     }
-    void CameraButtonPressed()
-    {
-        CameraButtonOn = true;
-    }
-
-    
 }
