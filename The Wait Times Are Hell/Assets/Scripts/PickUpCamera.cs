@@ -5,21 +5,70 @@ using UnityEngine.UI;
 
 public class PickUpCamera : MonoBehaviour
 {
+    public Sprite IS1DA;
+    public Sprite IS2DA;
+    public Sprite IS3DA;
+    public Sprite IS4DA;
+    public Sprite IS5DA;
+    public Sprite IS1A;
+    public Sprite IS2A;
+    public Sprite IS3A;
+    public Sprite IS4A;
+    public Sprite IS5A;
+
+    public GameObject LustLock;
+    public GameObject GluttonyLock;
+    public GameObject GreedLock;
+    public GameObject WrathLock;
+    public GameObject SlothLock;
+    public GameObject PrideLock;
+    public GameObject EnvyLock;
+
     public GameObject Camera1;
     public GameObject CameraObject;
     public int CameraPosition;
     public bool CameraButtonOn;
 
+    public GameObject Eye1;
+    public GameObject EyeObject;
+    public int EyePosition;
+    public bool EyeButtonOn;
+
     public GameObject DummyCamera;
+    public GameObject DummyKaren;
 
     public GameObject Book1;
     public GameObject BookObject;
     public int BookPosition;
     public bool BookButtonOn;
 
+    public GameObject Cup1;
+    public GameObject Cup2;
+    public GameObject Cup3;
+    public GameObject Cup4;
+    public int CupPosition;
+    public int FourCupPosition;
+    public bool CupButtonOn;
+
     public GameObject Karen1;
+    public GameObject KarenObject;
     public int KarenPosition;
     public bool KarenButtonOn;
+
+    public GameObject Pizza1;
+    public GameObject PizzaObject;
+    public int PizzaPosition;
+    public bool PizzaButtonOn;
+
+    public GameObject Bob1;
+    public GameObject BobObject;
+    public int BobPosition;
+    public bool BobButtonOn;
+
+    public GameObject Jill1;
+    public GameObject JillObject;
+    public int JillPosition;
+    public bool JillButtonOn;
 
     public GameObject KarenBook1;
     public int KarenBookPosition;
@@ -43,7 +92,6 @@ public class PickUpCamera : MonoBehaviour
         InventoryPosition = GameObject.Find("1");
         WhereTo = 1;
 
-
     }
     void Update()
     {
@@ -63,14 +111,77 @@ public class PickUpCamera : MonoBehaviour
         {
             KarenBookButtonOn = true;
         }
-
-        if ((KarenButtonOn == true) & (BookButtonOn == true))
+        if (Input.GetKeyDown(PizzaPosition.ToString()))
         {
-            Book1.SetActive(false);
-            Karen1.SetActive(false);
-            KarenBook1.transform.position = InventoryPosition.transform.position;
-
+            PizzaButtonOn = true;
         }
+        if (Input.GetKeyDown(FourCupPosition.ToString()))
+        {
+            CupButtonOn = true;
+        }
+        if (Input.GetKeyDown(EyePosition.ToString()))
+        {
+            EyeButtonOn = true;
+        }
+        if (Input.GetKeyDown(BobPosition.ToString()))
+        {
+            BobButtonOn = true;
+        }
+        if (Input.GetKeyDown(JillPosition.ToString()))
+        {
+            JillButtonOn = true;
+        }
+        if ((KarenButtonOn == true) && (BookButtonOn == true))
+        {
+            if (WhereTo == 1)
+            {
+                InventoryPosition = GameObject.Find("1");
+            }
+            if (WhereTo == 2)
+            {
+                InventoryPosition = GameObject.Find("2");
+            }
+            if (WhereTo == 3)
+            {
+                InventoryPosition = GameObject.Find("3");
+            }
+            if (WhereTo == 4)
+            {
+                InventoryPosition = GameObject.Find("4");
+            }
+            if (WhereTo == 5)
+            {
+                InventoryPosition = GameObject.Find("5");
+            }
+            if (WhereTo == 6)
+            {
+                InventoryPosition = GameObject.Find("6");
+            }
+            if (WhereTo == 7)
+            {
+                InventoryPosition = GameObject.Find("7");
+            }
+            if (WhereTo == 8)
+            {
+                InventoryPosition = GameObject.Find("8");
+            }
+            if (WhereTo == 9)
+            {
+                InventoryPosition = GameObject.Find("9");
+            }
+            if (WhereTo == 10)
+            {
+                InventoryPosition = GameObject.Find("0");
+            }
+            KarenBook1.transform.position = GameObject.Find("1").transform.position;
+            //KarenBook1.transform.position = InventoryPosition.transform.position;
+            KarenBookPosition = 1;
+            //KarenBookPosition = WhereTo;
+            Karen1.SetActive(false);
+            Book1.SetActive(false);
+        }
+
+
 
 
         if ((Input.GetKeyDown("i")) & (Menu.activeInHierarchy == false))
@@ -85,23 +196,72 @@ public class PickUpCamera : MonoBehaviour
         {
             RaycastHit RayHit;
             Ray RayItem = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(RayItem, out RayHit)) ;
+            if (Physics.Raycast(RayItem, out RayHit));
             {
                 if (RayHit.transform.name == "ObjectWaterDispensor1")
                 {
+                    if (WhereTo == 1)
+                    {
+                        InventoryPosition = GameObject.Find("1");
+                    }
+                    if (WhereTo == 2)
+                    {
+                        InventoryPosition = GameObject.Find("2");
+                    }
+                    if (WhereTo == 3)
+                    {
+                        InventoryPosition = GameObject.Find("3");
+                    }
+                    if (WhereTo == 4)
+                    {
+                        InventoryPosition = GameObject.Find("4");
+                    }
+                    if (WhereTo == 5)
+                    {
+                        InventoryPosition = GameObject.Find("5");
+                    }
+                    if (WhereTo == 6)
+                    {
+                        InventoryPosition = GameObject.Find("6");
+                    }
+                    if (WhereTo == 7)
+                    {
+                        InventoryPosition = GameObject.Find("7");
+                    }
+                    if (WhereTo == 8)
+                    {
+                        InventoryPosition = GameObject.Find("8");
+                    }
+                    if (WhereTo == 9)
+                    {
+                        InventoryPosition = GameObject.Find("9");
+                    }
+                    if (WhereTo == 10)
+                    {
+                        InventoryPosition = GameObject.Find("0");
+                    }
                     WD2.transform.position = WD1.transform.position;
                     WD1.SetActive(false);
-                }
+                    Cup1.transform.position = GameObject.Find("2").transform.position;
+                    //Cup1.transform.position = InventoryPosition.transform.position;
+                    CupPosition = 2;
+                    //CupPosition = WhereTo;
+                    WhereTo = WhereTo + 1;
 
+                }
                 if (RayHit.transform.name == "ObjectWaterDispensor2")
                 {
                     WD3.transform.position = WD2.transform.position;
                     WD2.SetActive(false);
+                    Cup2.transform.position = Cup1.transform.position;
+                    Cup1.SetActive(false);
                 }
                 if (RayHit.transform.name == "ObjectWaterDispensor3")
                 {
                     WD4.transform.position = WD3.transform.position;
                     WD3.SetActive(false);
+                    Cup3.transform.position = Cup2.transform.position;
+                    Cup2.SetActive(false);
                 }
                 if (RayHit.transform.name == "ObjectWaterDispensor4")
                 {
@@ -110,7 +270,11 @@ public class PickUpCamera : MonoBehaviour
                     Jill.transform.position = GoToForJill.transform.position;
                     CameraObject.transform.position = DummyCamera.transform.position;
                     DummyCamera.SetActive(false);
+                    Cup4.transform.position = Cup3.transform.position;
+                    Cup3.SetActive(false);
+                    FourCupPosition = CupPosition;
                 }
+                
             }
             if (WhereTo == 1)
             {
@@ -132,6 +296,26 @@ public class PickUpCamera : MonoBehaviour
             {
                 InventoryPosition = GameObject.Find("5");
             }
+            if (WhereTo == 6)
+            {
+                InventoryPosition = GameObject.Find("6");
+            }
+            if (WhereTo == 7)
+            {
+                InventoryPosition = GameObject.Find("7");
+            }
+            if (WhereTo == 8)
+            {
+                InventoryPosition = GameObject.Find("8");
+            }
+            if (WhereTo == 9)
+            {
+                InventoryPosition = GameObject.Find("9");
+            }
+            if (WhereTo == 10)
+            {
+                InventoryPosition = GameObject.Find("0");
+            }
         }
         if (Input.GetMouseButtonDown(0))
         {
@@ -141,26 +325,69 @@ public class PickUpCamera : MonoBehaviour
             {
                 if (RayHit.transform.name == "ObjectCamera")
                 {
-                    Camera1.transform.position = InventoryPosition.transform.position;
+                    Camera1.transform.position = GameObject.Find("6").transform.position;
+                    //Camera1.transform.position = InventoryPosition.transform.position;
                     CameraObject.SetActive(false);
-                    CameraPosition = WhereTo;
+                    CameraPosition = 6;
+                    //CameraPosition = WhereTo;
                     WhereTo = WhereTo + 1;
-                    
-
+                    if (WhereTo == 10)
+                        {
+                        CameraPosition = 0;
+                    }
+                }
+                if (RayHit.transform.name == "ObjectPizza")
+                {
+                    Pizza1.transform.position = GameObject.Find("5").transform.position;
+                    //Pizza1.transform.position = InventoryPosition.transform.position;
+                    PizzaObject.SetActive(false);
+                    PizzaPosition = 5;
+                    //PizzaPosition = WhereTo;
+                    WhereTo = WhereTo + 1;
                 }
                 if (RayHit.transform.name == "ObjectBook")
                 {
-                    Book1.transform.position = InventoryPosition.transform.position;
+                    Book1.transform.position = GameObject.Find("1").transform.position;
+                    //Book1.transform.position = InventoryPosition.transform.position;
                     BookObject.SetActive(false);
-                    BookPosition = WhereTo;
+                    BookPosition = 1;
+                    //BookPosition = WhereTo;
                     WhereTo = WhereTo + 1;
                 }
-                if ((RayHit.transform.name == "KarenEverTorture") && (CameraButtonOn == true))
+                if (RayHit.transform.name == "ObjectAngryEye")
                 {
-                        Karen1.transform.position = InventoryPosition.transform.position;
-                    KarenPosition = WhereTo;
+                    Eye1.transform.position = GameObject.Find("4").transform.position;
+                    //Eye1.transform.position = InventoryPosition.transform.position;
+                    EyeObject.SetActive(false);
+                    EyePosition = 4;
+                    //EyePosition = WhereTo;
                     WhereTo = WhereTo + 1;
-                   
+                }
+                if ((RayHit.transform.name == "Karen") && (CameraButtonOn == true))
+                {
+                    Karen1.transform.position = GameObject.Find("7").transform.position;
+                   //Karen1.transform.position = InventoryPosition.transform.position;
+                    KarenPosition = 7;
+                    //KarenPosition = WhereTo;
+                    WhereTo = WhereTo + 1;
+                    DummyKaren.SetActive(true);
+                    KarenObject.SetActive(false);
+                }
+                if ((RayHit.transform.name == "Bob") && (CameraButtonOn == true))
+                {
+                    Bob1.transform.position = GameObject.Find("8").transform.position;
+                    //Bob1.transform.position = InventoryPosition.transform.position;
+                    BobPosition = 8;
+                    //BobPosition = WhereTo;
+                    WhereTo = WhereTo + 1;
+                }
+                if ((RayHit.transform.name == "Jill") && (CameraButtonOn == true))
+                {
+                    Jill1.transform.position = GameObject.Find("9").transform.position;
+                    //Jill1.transform.position = InventoryPosition.transform.position;
+                    JillPosition = 9;
+                    //JillPosition = WhereTo;
+                    WhereTo = WhereTo + 1;
                 }
                 if (RayHit.transform.name == "DummyObjectCamera")
                 {
@@ -168,8 +395,36 @@ public class PickUpCamera : MonoBehaviour
                     Emily.transform.position = GoToForEmily.transform.position;
                     Emily.SetActive(true);
                 }
+                if ((RayHit.transform.name == "Bob") && (KarenBookButtonOn == true))
+                {
+                    BobObject.SetActive(false);
+                }
+                if ((RayHit.transform.name == "LustLock") && (KarenBookButtonOn == true))
+                {
+                    LustLock.SetActive(false);
+                }
+                if ((RayHit.transform.name == "GluttonyLock") && (PizzaButtonOn == true))
+                {
+                    GluttonyLock.SetActive(false);
+                }
+                if ((RayHit.transform.name == "GreedLock") && (CupButtonOn == true))
+                {
+                    GreedLock.SetActive(false);
+                }
+                if ((RayHit.transform.name == "WrathLock") && (EyeButtonOn == true))
+                {
+                    WrathLock.SetActive(false);
+                }
+                if ((RayHit.transform.name == "SlothLock") && (BobButtonOn == true))
+                {
+                    SlothLock.SetActive(false);
+                }
+                if ((RayHit.transform.name == "PrideLock") && (JillButtonOn == true))
+                {
+                    PrideLock.SetActive(false);
+                }
 
-            }     
+            }
         }
     }
 }
