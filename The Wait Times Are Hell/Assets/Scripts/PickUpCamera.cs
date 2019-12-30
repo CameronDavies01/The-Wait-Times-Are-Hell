@@ -29,10 +29,19 @@ public class PickUpCamera : MonoBehaviour
     public int CameraPosition;
     public bool CameraButtonOn;
 
+    public AudioSource Good;
+    public AudioSource Bad;
+    public AudioSource Unlock;
+
     public GameObject Eye1;
     public GameObject EyeObject;
     public int EyePosition;
     public bool EyeButtonOn;
+
+    public GameObject Globe1;
+    public GameObject GlobeObject;
+    public int GlobePosition;
+    public bool GlobeButtonOn;
 
     public GameObject DummyCamera;
     public GameObject DummyKaren;
@@ -131,6 +140,10 @@ public class PickUpCamera : MonoBehaviour
         {
             JillButtonOn = true;
         }
+        if (Input.GetKeyDown(GlobePosition.ToString()))
+        {
+            GlobeButtonOn = true;
+        }
         if ((KarenButtonOn == true) && (BookButtonOn == true))
         {
             if (WhereTo == 1)
@@ -174,11 +187,10 @@ public class PickUpCamera : MonoBehaviour
                 InventoryPosition = GameObject.Find("0");
             }
             KarenBook1.transform.position = GameObject.Find("1").transform.position;
-            //KarenBook1.transform.position = InventoryPosition.transform.position;
             KarenBookPosition = 1;
-            //KarenBookPosition = WhereTo;
             Karen1.SetActive(false);
             Book1.SetActive(false);
+            Good.Play();
         }
 
 
@@ -243,9 +255,7 @@ public class PickUpCamera : MonoBehaviour
                     WD2.transform.position = WD1.transform.position;
                     WD1.SetActive(false);
                     Cup1.transform.position = GameObject.Find("2").transform.position;
-                    //Cup1.transform.position = InventoryPosition.transform.position;
                     CupPosition = 2;
-                    //CupPosition = WhereTo;
                     WhereTo = WhereTo + 1;
 
                 }
@@ -273,6 +283,7 @@ public class PickUpCamera : MonoBehaviour
                     Cup4.transform.position = Cup3.transform.position;
                     Cup3.SetActive(false);
                     FourCupPosition = CupPosition;
+                    Good.Play();
                 }
                 
             }
@@ -326,102 +337,120 @@ public class PickUpCamera : MonoBehaviour
                 if (RayHit.transform.name == "ObjectCamera")
                 {
                     Camera1.transform.position = GameObject.Find("6").transform.position;
-                    //Camera1.transform.position = InventoryPosition.transform.position;
                     CameraObject.SetActive(false);
                     CameraPosition = 6;
-                    //CameraPosition = WhereTo;
                     WhereTo = WhereTo + 1;
-                    if (WhereTo == 10)
-                        {
-                        CameraPosition = 0;
-                    }
+                    Good.Play();
                 }
                 if (RayHit.transform.name == "ObjectPizza")
                 {
                     Pizza1.transform.position = GameObject.Find("5").transform.position;
-                    //Pizza1.transform.position = InventoryPosition.transform.position;
                     PizzaObject.SetActive(false);
                     PizzaPosition = 5;
-                    //PizzaPosition = WhereTo;
                     WhereTo = WhereTo + 1;
+                    Good.Play();
                 }
                 if (RayHit.transform.name == "ObjectBook")
                 {
                     Book1.transform.position = GameObject.Find("1").transform.position;
-                    //Book1.transform.position = InventoryPosition.transform.position;
                     BookObject.SetActive(false);
                     BookPosition = 1;
-                    //BookPosition = WhereTo;
                     WhereTo = WhereTo + 1;
+                    Good.Play();
                 }
                 if (RayHit.transform.name == "ObjectAngryEye")
                 {
                     Eye1.transform.position = GameObject.Find("4").transform.position;
-                    //Eye1.transform.position = InventoryPosition.transform.position;
                     EyeObject.SetActive(false);
                     EyePosition = 4;
-                    //EyePosition = WhereTo;
                     WhereTo = WhereTo + 1;
+                    Good.Play();
+                }
+                if (RayHit.transform.name == "Globe")
+                {
+                    Globe1.transform.position = GameObject.Find("3").transform.position;
+                    GlobeObject.SetActive(false);
+                    GlobePosition = 3;
+                    WhereTo = WhereTo + 1;
+                    Good.Play();
                 }
                 if ((RayHit.transform.name == "Karen") && (CameraButtonOn == true))
                 {
                     Karen1.transform.position = GameObject.Find("7").transform.position;
-                   //Karen1.transform.position = InventoryPosition.transform.position;
                     KarenPosition = 7;
-                    //KarenPosition = WhereTo;
                     WhereTo = WhereTo + 1;
                     DummyKaren.SetActive(true);
                     KarenObject.SetActive(false);
+                    Good.Play();
                 }
                 if ((RayHit.transform.name == "Bob") && (CameraButtonOn == true))
                 {
                     Bob1.transform.position = GameObject.Find("8").transform.position;
-                    //Bob1.transform.position = InventoryPosition.transform.position;
                     BobPosition = 8;
-                    //BobPosition = WhereTo;
                     WhereTo = WhereTo + 1;
+                    Good.Play();
                 }
                 if ((RayHit.transform.name == "Jill") && (CameraButtonOn == true))
                 {
                     Jill1.transform.position = GameObject.Find("9").transform.position;
-                    //Jill1.transform.position = InventoryPosition.transform.position;
                     JillPosition = 9;
-                    //JillPosition = WhereTo;
                     WhereTo = WhereTo + 1;
+                    Good.Play();
                 }
                 if (RayHit.transform.name == "DummyObjectCamera")
                 {
                     Emily.SetActive(false);
                     Emily.transform.position = GoToForEmily.transform.position;
                     Emily.SetActive(true);
+                    Bad.Play();
                 }
                 if ((RayHit.transform.name == "Bob") && (KarenBookButtonOn == true))
                 {
                     BobObject.SetActive(false);
+                    Bob1.SetActive(false);
+                    Good.Play();
                 }
                 if ((RayHit.transform.name == "LustLock") && (KarenBookButtonOn == true))
                 {
                     LustLock.SetActive(false);
+                    KarenBook1.SetActive(false);
+                    Unlock.Play();
                 }
                 if ((RayHit.transform.name == "GluttonyLock") && (PizzaButtonOn == true))
                 {
                     GluttonyLock.SetActive(false);
+                    Pizza1.SetActive(false);
+                    Unlock.Play();
                 }
                 if ((RayHit.transform.name == "GreedLock") && (CupButtonOn == true))
                 {
                     GreedLock.SetActive(false);
+                    Cup1.SetActive(false);
+                    Unlock.Play();
                 }
                 if ((RayHit.transform.name == "WrathLock") && (EyeButtonOn == true))
                 {
                     WrathLock.SetActive(false);
+                    Eye1.SetActive(false);
+                    Unlock.Play();
                 }
                 if ((RayHit.transform.name == "SlothLock") && (BobButtonOn == true))
                 {
                     SlothLock.SetActive(false);
+                    Bob1.SetActive(false);
+                    Unlock.Play();
                 }
                 if ((RayHit.transform.name == "PrideLock") && (JillButtonOn == true))
                 {
                     PrideLock.SetActive(false);
+                    Jill1.SetActive(false);
+                    Unlock.Play();
+                }
+                if ((RayHit.transform.name == "EnvyLock") && (GlobeButtonOn == true))
+                {
+                    EnvyLock.SetActive(false);
+                    Globe1.SetActive(false);
+                    Unlock.Play();
                 }
 
             }
