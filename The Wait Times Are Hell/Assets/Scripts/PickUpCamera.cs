@@ -2,19 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PickUpCamera : MonoBehaviour
 {
-    public Sprite IS1DA;
-    public Sprite IS2DA;
-    public Sprite IS3DA;
-    public Sprite IS4DA;
-    public Sprite IS5DA;
-    public Sprite IS1A;
-    public Sprite IS2A;
-    public Sprite IS3A;
-    public Sprite IS4A;
-    public Sprite IS5A;
+    public GameObject IS1DA;
+    public GameObject IS2DA;
+    public GameObject IS3DA;
+    public GameObject IS4DA;
+    public GameObject IS5DA;
+    public GameObject IS6DA;
+    public GameObject IS7DA;
+    public GameObject IS8DA;
+    public GameObject IS9DA;
+    public GameObject IS10DA;
+    public GameObject IS1A;
+    public GameObject IS2A;
+    public GameObject IS3A;
+    public GameObject IS4A;
+    public GameObject IS5A;
+    public GameObject IS6A;
+    public GameObject IS7A;
+    public GameObject IS8A;
+    public GameObject IS9A;
+    public GameObject IS10A;
 
     public GameObject LustLock;
     public GameObject GluttonyLock;
@@ -23,6 +34,15 @@ public class PickUpCamera : MonoBehaviour
     public GameObject SlothLock;
     public GameObject PrideLock;
     public GameObject EnvyLock;
+
+    public bool LustOpen;
+    public bool GluttonyOpen;
+    public bool GreedOpen;
+    public bool WrathOpen;
+    public bool SlothOpen;
+    public bool PrideOpen;
+    public bool EnvyOpen;
+
 
     public GameObject Camera1;
     public GameObject CameraObject;
@@ -71,6 +91,7 @@ public class PickUpCamera : MonoBehaviour
 
     public GameObject Bob1;
     public GameObject BobObject;
+    public GameObject BobPicObject;
     public int BobPosition;
     public bool BobButtonOn;
 
@@ -104,45 +125,411 @@ public class PickUpCamera : MonoBehaviour
     }
     void Update()
     {
+        if ((PrideOpen == true) && (SlothOpen == true) && (EnvyOpen == true) && (GluttonyOpen == true) && (LustOpen == true) && (WrathOpen == true) && (GreedOpen == true))
+        {
+            SceneManager.LoadScene("You Win");
+        }
+
+
         if (Input.GetKeyDown(CameraPosition.ToString()))
         {
             CameraButtonOn = true;
+            IS6DA.SetActive(false);
+            IS6A.SetActive(true);
+
+            BookButtonOn = false;
+            IS1DA.SetActive(true);
+            IS1A.SetActive(false);
+
+            KarenButtonOn = false;
+            IS7DA.SetActive(true);
+            IS7A.SetActive(false);
+
+            KarenBookButtonOn = false;
+            IS1DA.SetActive(true);
+            IS1A.SetActive(false);
+
+            PizzaButtonOn = false;
+            IS5DA.SetActive(true);
+            IS5A.SetActive(false);
+
+            CupButtonOn = false;
+            IS2DA.SetActive(true);
+            IS2A.SetActive(false);
+
+            EyeButtonOn = false;
+            IS4DA.SetActive(true);
+            IS4A.SetActive(false);
+
+            BobButtonOn = false;
+            IS8DA.SetActive(true);
+            IS8A.SetActive(false);
+
+            JillButtonOn = false;
+            IS9DA.SetActive(true);
+            IS9A.SetActive(false);
+
+            GlobeButtonOn = false;
+            IS3DA.SetActive(true);
+            IS3A.SetActive(false);
+
         }
         if (Input.GetKeyDown(BookPosition.ToString()))
         {
             BookButtonOn = true;
+            IS1DA.SetActive(false);
+            IS1A.SetActive(true);
+
+            IS6DA.SetActive(true);
+            IS6A.SetActive(false);
+            CameraButtonOn = false;
+
+            PizzaButtonOn = false;
+            IS5DA.SetActive(true);
+            IS5A.SetActive(false);
+
+            CupButtonOn = false;
+            IS2DA.SetActive(true);
+            IS2A.SetActive(false);
+
+            EyeButtonOn = false;
+            IS4DA.SetActive(true);
+            IS4A.SetActive(false);
+
+            BobButtonOn = false;
+            IS8DA.SetActive(true);
+            IS8A.SetActive(false);
+
+            JillButtonOn = false;
+            IS9DA.SetActive(true);
+            IS9A.SetActive(false);
+
+            GlobeButtonOn = false;
+            IS3DA.SetActive(true);
+            IS3A.SetActive(false);
+
         }
         if (Input.GetKeyDown(KarenPosition.ToString()))
         {
             KarenButtonOn = true;
+            IS7DA.SetActive(false);
+            IS7A.SetActive(true);
+
+            IS6DA.SetActive(true);
+            IS6A.SetActive(false);
+            CameraButtonOn = false;
+
+            PizzaButtonOn = false;
+            IS5DA.SetActive(true);
+            IS5A.SetActive(false);
+
+            CupButtonOn = false;
+            IS2DA.SetActive(true);
+            IS2A.SetActive(false);
+
+            EyeButtonOn = false;
+            IS4DA.SetActive(true);
+            IS4A.SetActive(false);
+
+            BobButtonOn = false;
+            IS8DA.SetActive(true);
+            IS8A.SetActive(false);
+
+            JillButtonOn = false;
+            IS9DA.SetActive(true);
+            IS9A.SetActive(false);
+
+            GlobeButtonOn = false;
+            IS3DA.SetActive(true);
+            IS3A.SetActive(false);
+
         }
         if (Input.GetKeyDown(KarenBookPosition.ToString()))
         {
             KarenBookButtonOn = true;
+            IS1DA.SetActive(false);
+            IS1A.SetActive(true);
+
+            IS6DA.SetActive(true);
+            IS6A.SetActive(false);
+            CameraButtonOn = false;
+
+            PizzaButtonOn = false;
+            IS5DA.SetActive(true);
+            IS5A.SetActive(false);
+
+            CupButtonOn = false;
+            IS2DA.SetActive(true);
+            IS2A.SetActive(false);
+
+            EyeButtonOn = false;
+            IS4DA.SetActive(true);
+            IS4A.SetActive(false);
+
+            BobButtonOn = false;
+            IS8DA.SetActive(true);
+            IS8A.SetActive(false);
+
+            JillButtonOn = false;
+            IS9DA.SetActive(true);
+            IS9A.SetActive(false);
+
+            GlobeButtonOn = false;
+            IS3DA.SetActive(true);
+            IS3A.SetActive(false);
+
         }
         if (Input.GetKeyDown(PizzaPosition.ToString()))
         {
             PizzaButtonOn = true;
+            IS5DA.SetActive(false);
+            IS5A.SetActive(true);
+
+            IS6DA.SetActive(true);
+            IS6A.SetActive(false);
+            CameraButtonOn = false;
+
+            BookButtonOn = false;
+            IS1DA.SetActive(true);
+            IS1A.SetActive(false);
+
+            KarenButtonOn = false;
+            IS7DA.SetActive(true);
+            IS7A.SetActive(false);
+
+            KarenBookButtonOn = false;
+            IS1DA.SetActive(true);
+            IS1A.SetActive(false);
+
+            CupButtonOn = false;
+            IS2DA.SetActive(true);
+            IS2A.SetActive(false);
+
+            EyeButtonOn = false;
+            IS4DA.SetActive(true);
+            IS4A.SetActive(false);
+
+            BobButtonOn = false;
+            IS8DA.SetActive(true);
+            IS8A.SetActive(false);
+
+            JillButtonOn = false;
+            IS9DA.SetActive(true);
+            IS9A.SetActive(false);
+
+            GlobeButtonOn = false;
+            IS3DA.SetActive(true);
+            IS3A.SetActive(false);
         }
         if (Input.GetKeyDown(FourCupPosition.ToString()))
         {
             CupButtonOn = true;
+            IS2DA.SetActive(false);
+            IS2A.SetActive(true);
+
+            IS6DA.SetActive(true);
+            IS6A.SetActive(false);
+            CameraButtonOn = false;
+
+            BookButtonOn = false;
+            IS1DA.SetActive(true);
+            IS1A.SetActive(false);
+
+            KarenButtonOn = false;
+            IS7DA.SetActive(true);
+            IS7A.SetActive(false);
+
+            KarenBookButtonOn = false;
+            IS1DA.SetActive(true);
+            IS1A.SetActive(false);
+
+            PizzaButtonOn = false;
+            IS5DA.SetActive(true);
+            IS5A.SetActive(false);
+
+            EyeButtonOn = false;
+            IS4DA.SetActive(true);
+            IS4A.SetActive(false);
+
+            BobButtonOn = false;
+            IS8DA.SetActive(true);
+            IS8A.SetActive(false);
+
+            JillButtonOn = false;
+            IS9DA.SetActive(true);
+            IS9A.SetActive(false);
+
+            GlobeButtonOn = false;
+            IS3DA.SetActive(true);
+            IS3A.SetActive(false);
         }
         if (Input.GetKeyDown(EyePosition.ToString()))
         {
             EyeButtonOn = true;
+            IS4DA.SetActive(false);
+            IS4A.SetActive(true);
+
+            IS6DA.SetActive(true);
+            IS6A.SetActive(false);
+            CameraButtonOn = false;
+
+            BookButtonOn = false;
+            IS1DA.SetActive(true);
+            IS1A.SetActive(false);
+
+            KarenButtonOn = false;
+            IS7DA.SetActive(true);
+            IS7A.SetActive(false);
+
+            KarenBookButtonOn = false;
+            IS1DA.SetActive(true);
+            IS1A.SetActive(false);
+
+            PizzaButtonOn = false;
+            IS5DA.SetActive(true);
+            IS5A.SetActive(false);
+
+            CupButtonOn = false;
+            IS2DA.SetActive(true);
+            IS2A.SetActive(false);
+
+            BobButtonOn = false;
+            IS8DA.SetActive(true);
+            IS8A.SetActive(false);
+
+            JillButtonOn = false;
+            IS9DA.SetActive(true);
+            IS9A.SetActive(false);
+
+            GlobeButtonOn = false;
+            IS3DA.SetActive(true);
+            IS3A.SetActive(false);
         }
         if (Input.GetKeyDown(BobPosition.ToString()))
         {
             BobButtonOn = true;
+            IS8DA.SetActive(false);
+            IS8A.SetActive(true);
+
+            IS6DA.SetActive(true);
+            IS6A.SetActive(false);
+            CameraButtonOn = false;
+
+            BookButtonOn = false;
+            IS1DA.SetActive(true);
+            IS1A.SetActive(false);
+
+            KarenButtonOn = false;
+            IS7DA.SetActive(true);
+            IS7A.SetActive(false);
+
+            KarenBookButtonOn = false;
+            IS1DA.SetActive(true);
+            IS1A.SetActive(false);
+
+            PizzaButtonOn = false;
+            IS5DA.SetActive(true);
+            IS5A.SetActive(false);
+
+            CupButtonOn = false;
+            IS2DA.SetActive(true);
+            IS2A.SetActive(false);
+
+            EyeButtonOn = false;
+            IS4DA.SetActive(true);
+            IS4A.SetActive(false);
+
+            JillButtonOn = false;
+            IS9DA.SetActive(true);
+            IS9A.SetActive(false);
+
+            GlobeButtonOn = false;
+            IS3DA.SetActive(true);
+            IS3A.SetActive(false);
         }
         if (Input.GetKeyDown(JillPosition.ToString()))
         {
             JillButtonOn = true;
+            IS9DA.SetActive(false);
+            IS9A.SetActive(true);
+
+            IS6DA.SetActive(true);
+            IS6A.SetActive(false);
+            CameraButtonOn = false;
+
+            BookButtonOn = false;
+            IS1DA.SetActive(true);
+            IS1A.SetActive(false);
+
+            KarenButtonOn = false;
+            IS7DA.SetActive(true);
+            IS7A.SetActive(false);
+
+            KarenBookButtonOn = false;
+            IS1DA.SetActive(true);
+            IS1A.SetActive(false);
+
+            PizzaButtonOn = false;
+            IS5DA.SetActive(true);
+            IS5A.SetActive(false);
+
+            CupButtonOn = false;
+            IS2DA.SetActive(true);
+            IS2A.SetActive(false);
+
+            EyeButtonOn = false;
+            IS4DA.SetActive(true);
+            IS4A.SetActive(false);
+
+            BobButtonOn = false;
+            IS8DA.SetActive(true);
+            IS8A.SetActive(false);
+
+            GlobeButtonOn = false;
+            IS3DA.SetActive(true);
+            IS3A.SetActive(false);
         }
         if (Input.GetKeyDown(GlobePosition.ToString()))
         {
             GlobeButtonOn = true;
+            IS3DA.SetActive(false);
+            IS3A.SetActive(true);
+
+            IS6DA.SetActive(true);
+            IS6A.SetActive(false);
+            CameraButtonOn = false;
+
+            BookButtonOn = false;
+            IS1DA.SetActive(true);
+            IS1A.SetActive(false);
+
+            KarenButtonOn = false;
+            IS7DA.SetActive(true);
+            IS7A.SetActive(false);
+
+            KarenBookButtonOn = false;
+            IS1DA.SetActive(true);
+            IS1A.SetActive(false);
+
+            PizzaButtonOn = false;
+            IS5DA.SetActive(true);
+            IS5A.SetActive(false);
+
+            CupButtonOn = false;
+            IS2DA.SetActive(true);
+            IS2A.SetActive(false);
+
+            EyeButtonOn = false;
+            IS4DA.SetActive(true);
+            IS4A.SetActive(false);
+
+            BobButtonOn = false;
+            IS8DA.SetActive(true);
+            IS8A.SetActive(false);
+
+            JillButtonOn = false;
+            IS9DA.SetActive(true);
+            IS9A.SetActive(false);
         }
         if ((KarenButtonOn == true) && (BookButtonOn == true))
         {
@@ -186,11 +573,10 @@ public class PickUpCamera : MonoBehaviour
             {
                 InventoryPosition = GameObject.Find("0");
             }
-            KarenBook1.transform.position = GameObject.Find("1").transform.position;
+            KarenBook1.transform.position = GameObject.Find("1 (1)").transform.position;
             KarenBookPosition = 1;
             Karen1.SetActive(false);
             Book1.SetActive(false);
-            Good.Play();
         }
 
 
@@ -390,6 +776,14 @@ public class PickUpCamera : MonoBehaviour
                     WhereTo = WhereTo + 1;
                     Good.Play();
                 }
+                if ((RayHit.transform.name == "Pic"))
+                {
+                    BobPicObject.SetActive(false);
+                    Bob1.transform.position = GameObject.Find("8").transform.position;
+                    BobPosition = 8;
+                    WhereTo = WhereTo + 1;
+                    Good.Play();
+                }
                 if ((RayHit.transform.name == "Jill") && (CameraButtonOn == true))
                 {
                     Jill1.transform.position = GameObject.Find("9").transform.position;
@@ -407,50 +801,63 @@ public class PickUpCamera : MonoBehaviour
                 if ((RayHit.transform.name == "Bob") && (KarenBookButtonOn == true))
                 {
                     BobObject.SetActive(false);
-                    Bob1.SetActive(false);
                     Good.Play();
+                    LustLock.SetActive(true);
+                    PrideLock.SetActive(true);
+                    EnvyLock.SetActive(true);
+                    GluttonyLock.SetActive(true);
+                    WrathLock.SetActive(true);
+                    SlothLock.SetActive(true);
+                    GreedLock.SetActive(true);
                 }
                 if ((RayHit.transform.name == "LustLock") && (KarenBookButtonOn == true))
                 {
                     LustLock.SetActive(false);
                     KarenBook1.SetActive(false);
                     Unlock.Play();
+                    LustOpen = true;
                 }
                 if ((RayHit.transform.name == "GluttonyLock") && (PizzaButtonOn == true))
                 {
                     GluttonyLock.SetActive(false);
                     Pizza1.SetActive(false);
                     Unlock.Play();
+                    GluttonyOpen = true;
                 }
                 if ((RayHit.transform.name == "GreedLock") && (CupButtonOn == true))
                 {
                     GreedLock.SetActive(false);
                     Cup1.SetActive(false);
                     Unlock.Play();
+                    GreedOpen = true;
                 }
                 if ((RayHit.transform.name == "WrathLock") && (EyeButtonOn == true))
                 {
                     WrathLock.SetActive(false);
                     Eye1.SetActive(false);
                     Unlock.Play();
+                    WrathOpen = true;
                 }
                 if ((RayHit.transform.name == "SlothLock") && (BobButtonOn == true))
                 {
                     SlothLock.SetActive(false);
                     Bob1.SetActive(false);
                     Unlock.Play();
+                    SlothOpen = true;
                 }
                 if ((RayHit.transform.name == "PrideLock") && (JillButtonOn == true))
                 {
                     PrideLock.SetActive(false);
                     Jill1.SetActive(false);
                     Unlock.Play();
+                    PrideOpen = true;
                 }
                 if ((RayHit.transform.name == "EnvyLock") && (GlobeButtonOn == true))
                 {
                     EnvyLock.SetActive(false);
                     Globe1.SetActive(false);
                     Unlock.Play();
+                    EnvyOpen = true;
                 }
 
             }
